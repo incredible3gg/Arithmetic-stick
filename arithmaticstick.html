@@ -8,11 +8,17 @@
 	    		ttl:"...",
 	    		highest:5,
 	    		good:0,
+	    		tap:function() {
+	    			for (var i = 0; i < this.ttl; i++) {
+	    					alert("tap number " + (i + 1));
+	    				};
+	    		},
 	    		points:function() {
 	    			if (this.good >= 100) {
 	    				alert("win stick!!!!!");
 	    				document.getElementById('good_stick').innerHTML = "YOU WIN!";
 	    				document.getElementById('pnts').innerHTML = "🎉	"
+	    				alert("final crowd: " + this.crowd.length)
 	    			} else if (this.good === 0) {
 	    				alert("stick");
 	    				document.getElementById('pnts').innerHTML = "next goal: good stick";
@@ -40,9 +46,7 @@
 	    			} else {
 	    				this.ttl = a + b;
 	    				console.log(this.ttl);
-	    				for (var i = 0; i < this.ttl; i++) {
-	    					alert("tap");
-	    				};
+	    				this.tap();
 	    				console.log(this.ttl);
 	    				this.good++;
 	    				document.getElementById('pnts').innerHTML = "good stick points: " + this.good;
@@ -63,9 +67,7 @@
 	    				alert("please enter a number");
 	    			} else {
 	    				this.ttl = a - b;
-	    				for (var i = 0; i < this.ttl; i++) {
-	    					alert("tap");
-	    				};
+	    				this.tap();
 	    				this.good++;
 	    				document.getElementById('pnts').innerHTML = "good stick points: " + this.good;
 	    				this.crowd += this.ttl;	
@@ -73,7 +75,7 @@
 	    					this.cropic[l] = '\\o/'
 	    				};
 	    				document.getElementById('crowd').innerHTML = this.cropic.join(" ");
-	    				this.highest += 2;	
+	    				this.highest += 2;		
 	    			};
 	    		},
 	    		multiply:function() {
@@ -86,9 +88,7 @@
 	    			} else {
 	    				this.ttl = a * b;
 	    				console.log(this.ttl);
-	    				for (var i = 0; i < this.ttl; i++) {
-	    					alert("tap");
-	    				};
+	    				this.tap();
 	    				this.good += 5;	
 	    				document.getElementById('pnts').innerHTML = "good stick points: " + this.good;
 	    				this.crowd += this.ttl * 2;	
@@ -117,7 +117,7 @@ _ ||
  \||
   ||
   _||_
- |+ - |<title>good stick</title></pre>
+  |+ - |<title>good stick</title></pre>
 		<input id='i1' type='text'>
 		<input id='i2' type='text'>
 		<button id='enter' onclick="stick.add();">add</button>

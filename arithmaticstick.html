@@ -18,7 +18,7 @@
 	    				alert("win stick!!!!!");
 	    				document.getElementById('good_stick').innerHTML = "YOU WIN!";
 	    				document.getElementById('pnts').innerHTML = "🎉	"
-	    				alert("final crowd: " + this.crowd.length)
+	    				alert("final crowd: " + this.crowd)
 	    			} else if (this.good === 0) {
 	    				alert("stick");
 	    				document.getElementById('pnts').innerHTML = "next goal: good stick";
@@ -62,9 +62,9 @@
 	    			var a = document.getElementById('i1').value;
 	    			var b = document.getElementById('i2').value;
 	    			if (a === "") {
-	    				alert("please enter a number");
+	    				alert("please enter a number higher than 0");
 	    			} else if (b === "") {
-	    				alert("please enter a number");
+	    				alert("please enter a number higher than 0");
 	    			} else {
 	    				this.ttl = a - b;
 	    				this.tap();
@@ -81,10 +81,10 @@
 	    		multiply:function() {
 	    			var a = Number(document.getElementById('i1').value);
 	    			var b = Number(document.getElementById('i2').value);
-	    			if (a === "") {
-	    				alert("please enter a number");
-	    			} else if (b === "") {
-	    				alert("please enter a number");
+	    			if (a === "0") {
+	    				alert("please enter a number higher than 0");
+	    			} else if (b === "0") {
+	    				alert("please enter a number higher than 0");
 	    			} else {
 	    				this.ttl = a * b;
 	    				console.log(this.ttl);

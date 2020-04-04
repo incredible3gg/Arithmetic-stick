@@ -1,0 +1,130 @@
+<html>
+	<head>
+		<title>The Amazing Arithmetic Stick</title>
+		<script>
+	    	var stick = {
+	    		cropic:[],
+	    		crowd:3,
+	    		ttl:"...",
+	    		highest:5,
+	    		good:0,
+	    		points:function() {
+	    			if (this.good >= 100) {
+	    				alert("win stick!!!!!");
+	    				document.getElementById('good_stick').innerHTML = "YOU WIN!";
+	    				document.getElementById('pnts').innerHTML = "🎉	"
+	    			} else if (this.good === 0) {
+	    				alert("stick");
+	    				document.getElementById('pnts').innerHTML = "next goal: good stick";
+	    			} else if (this.good >= 10) {
+	    				alert("very good stick!");
+	    				document.getElementById('times').style="display:inline;";
+	    				document.getElementById('pnts').innerHTML = "next goal: win stick!!!!!";
+						document.getEelementById('crowd').innerHTML = "stick can now do higher equations, to attract more crowd";
+	    			} else {
+	    				alert("good stick");
+	    				document.getElementById('pnts').innerHTML = "next goal: very good stick!";
+	    			}
+	    		},
+	    		add:function() {
+	    			var a = Number(document.getElementById('i1').value);
+	    			var b = Number(document.getElementById('i2').value);
+	    			if (a === 0) {
+	    				alert("please enter a number higher than 0 in first input");
+	    			} else if (b === 0) {
+	    				alert("please enter a number higher than 0 in second input");
+	    			} else if (a > this.highest) {
+	    				alert("stick can't do that high equations yet.");
+	    			} else if (b > this.highest) {
+	    				alert("stick can't do that high equations yet.");
+	    			} else {
+	    				this.ttl = a + b;
+	    				console.log(this.ttl);
+	    				for (var i = 0; i < this.ttl; i++) {
+	    					alert("tap");
+	    				};
+	    				console.log(this.ttl);
+	    				this.good++;
+	    				document.getElementById('pnts').innerHTML = "good stick points: " + this.good;
+	    				this.crowd += this.ttl;	
+	    				for (var l = 0; l < this.crowd; l++) {
+	    					this.cropic[l] = '\\o/'
+	    				};
+	    				document.getElementById('crowd').innerHTML = this.cropic.join(" ");
+	    				this.highest += 2;
+	    			};	
+	    		},
+	    		sub:function() {
+	    			var a = document.getElementById('i1').value;
+	    			var b = document.getElementById('i2').value;
+	    			if (a === "") {
+	    				alert("please enter a number");
+	    			} else if (b === "") {
+	    				alert("please enter a number");
+	    			} else {
+	    				this.ttl = a - b;
+	    				for (var i = 0; i < this.ttl; i++) {
+	    					alert("tap");
+	    				};
+	    				this.good++;
+	    				document.getElementById('pnts').innerHTML = "good stick points: " + this.good;
+	    				this.crowd += this.ttl;	
+	    				for (var l = 0; l < this.crowd; l++) {
+	    					this.cropic[l] = '\\o/'
+	    				};
+	    				document.getElementById('crowd').innerHTML = this.cropic.join(" ");
+	    				this.highest += 2;	
+	    			};
+	    		},
+	    		multiply:function() {
+	    			var a = Number(document.getElementById('i1').value);
+	    			var b = Number(document.getElementById('i2').value);
+	    			if (a === "") {
+	    				alert("please enter a number");
+	    			} else if (b === "") {
+	    				alert("please enter a number");
+	    			} else {
+	    				this.ttl = a * b;
+	    				console.log(this.ttl);
+	    				for (var i = 0; i < this.ttl; i++) {
+	    					alert("tap");
+	    				};
+	    				this.good += 5;	
+	    				document.getElementById('pnts').innerHTML = "good stick points: " + this.good;
+	    				this.crowd += this.ttl * 2;	
+	    				for (var l = 0; l < this.crowd; l++) {
+	    					this.cropic[l] = '\\o/'
+	    				};
+	    				document.getElementById('crowd').innerHTML = this.cropic.join(" ");
+	    				this.highest += 4;
+	    			};
+	    		},
+	    	};
+	 	</script>
+	 	<style>
+	 		body {
+	 			text-align:center;
+	 		};
+	 	</style>
+	</head>
+	<body style="background:lightblue; color:green; font-family:sans-serif">
+		<h1 style="font-family:fantasy">the arithmetic stick</h1>
+		<p>stick will tap out equations for you.</p>
+		<p id='pnts'>good stick points: 0. click on stick to see progress</p>
+		<pre id="good_stick" onclick="stick.points();" style="color:brown">
+_ ||
+\\||
+ \||
+  ||
+  _||_
+ |+ - |<title>good stick</title></pre>
+		<input id='i1' type='text'>
+		<input id='i2' type='text'>
+		<button id='enter' onclick="stick.add();">add</button>
+		<button id='sub' onclick="stick.sub();">subtract</button>
+		<button id='times' onclick="stick.multiply();" style='display:none;'>multiply</button>
+		<p id='crowd' style="display:block">this is the crowd</p>
+	 	<p style="color:black">based after the arithmetic horse. read <a href="https://en.wikipedia.org/wiki/Clever_Hans">here</a> to know more</p>
+	 	<p style="font-size:10; color:darkblue">10 cent games ®</p>
+	 </body>
+</html>

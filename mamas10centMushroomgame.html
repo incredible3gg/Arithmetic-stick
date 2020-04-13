@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Mamas 10 cent Food game</title>
+	<body>
+	<h1 style="color:darkgreen; font-family:sans-serif;">YUCKY FOOD? FIND OUT NOW.</h1>
+	<pre id='mushroom' style="font-family:monospace;">   
+			______
+		      /   10   \
+		     /  cent    \
+		     |__games__ |
+			|    |
+		       /______\</pre>
+		       <input id='food' type='text'>
+		       <button id='enter' onclick='checkFood();'>enter food</button>
+		       <pre id='answer'>...</pre>
+		       <script>
+		       
+		       //foods
+		       var yum = ["chicken nuggets","chanterelle","candy","chocolate"];
+		       var yuck = ["poop soup","pickle","ravioli","pizza cheese"];
+		       var points = 0
+		       var foods = {
+		       	"chicken nuggets":"yummy",
+		       	"chanterelle":"yummy",
+		       	"candy":"[}O{]",
+		       	"chocolate":"yummy",
+		       	"poop soup":"💩 yucky",
+		       	"pickle":"yucky",
+		       	"ravioli":"yucky",
+		       	"pizza cheese":"yucky",
+		       	"goat":`
+_V
+ \\___'
+  /\\ /\\
+ /  X /
+`,
+			 	"whale":`
+ _       . ----------- .
+\\  \\___/               \\
+ \\                    @  \\	
+ / ___                    |
+/_/   \\                 - 
+	   \\___________ . '
+`
+};
+		       //food check
+		       function checkFood() {
+		       input = document.getElementById('food').value;
+		       	if (foods[input] !== undefined) {
+		       		document.getElementById('answer').innerHTML = foods[input];
+		       		points++;
+		       		document.getElementById('mushroom').innerHTML = points;
+		       	} else {
+		       		document.getElementById('answer').innerHTML = "nooooot a food! not a food! not a food!";
+		       	}
+		       };
+		       
+		       </script>
+	</body>
+</html>
